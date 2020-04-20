@@ -26,7 +26,10 @@
         "url": "https://github.com/GaryM-exkage/vscode-nim-alt/issues"
     },
     "scripts": {
-        "vscode:prepublish": "tsc -p ./",
+        "vscode:prepublish": "webpack --mode production",
+        "webpack": "webpack --mode development",
+        "webpack-dev": "webpack --mode development --watch",
+        "test-compile": "tsc -p ./",
         "watch": "tsc -watch -p ./",
         "postinstall": "node ./node_modules/vscode/bin/install",
         "lint": "node ./node_modules/tslint/bin/tslint ./src/*.ts ./test/*.ts"
@@ -37,9 +40,12 @@
     "devDependencies": {
         "@types/mocha": "^5.2.7",
         "@types/node": "^10.17.17",
+        "ts-loader": "^7.0.1",
         "tslint": "^5.20.1",
         "typescript": "^2.6.1",
-        "vscode": "^1.1.36"
+        "vscode": "^1.1.36",
+        "webpack": "^4.42.1",
+        "webpack-cli": "^3.3.11"
     },
     "extensionDependencies": [
         "ms-vscode.cpptools"
@@ -56,7 +62,7 @@
         "onCommand:nim.runTest",
         "onCommand:nim.execSelectionInTerminal"
     ],
-    "main": "./out/nimMain",
+    "main": "./dist/nimMain",
     "contributes": {
         "languages": [
             {

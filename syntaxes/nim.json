@@ -93,7 +93,7 @@
         "name": "keyword.operator.arithmetic.nim"
       },
       "assignment_op": {
-        "match": "=[^<>!]",
+        "match": "[^-+*/<>!]=[^-+*/<>!]",
         "name": "keyword.operator.assignment.nim"
       },
       "keywords": {
