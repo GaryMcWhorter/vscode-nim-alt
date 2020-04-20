@@ -7,7 +7,7 @@ sudo: false
 
 install:
   - npm install
-  - npm run vscode:prepublish
+  - npm run test-compile
 
 script:
   - npm run lint
