@@ -1,9 +1,14 @@
 # Nim for Visual Studio Code
 
-[![Version](https://vsmarketplacebadge.apphb.com/version/kosz78.nim.svg)](https://marketplace.visualstudio.com/items?itemName=kosz78.nim)
-[![Installs](https://vsmarketplacebadge.apphb.com/installs/kosz78.nim.svg)](https://marketplace.visualstudio.com/items?itemName=kosz78.nim)
-[![Ratings](https://vsmarketplacebadge.apphb.com/rating/kosz78.nim.svg)](https://vsmarketplacebadge.apphb.com/rating/kosz78.nim.svg)
-[![Build Status](https://travis-ci.org/pragmagic/vscode-nim.svg?branch=master)](https://travis-ci.org/pragmagic/vscode-nim)
+[![Build Status](https://travis-ci.org/GaryM-exkage/vscode-nim-alt.svg?branch=master)](https://travis-ci.org/GaryM-exkage/vscode-nim-alt)
+
+**NOTE:**
+_This is currently a mirror of [the original Nim extension](https://marketplace.visualstudio.com/items?itemName=kosz78.nim)_
+Changes include:
+- Fixes for syntax highlighting bugs
+- Changes to syntax highlighting to more properly reflect idiomatic practice. 
+    This will look different and many words will now not be highlighted as you may have been used to, but this is more consistent and correct to the language standard.
+- A pretty new icon
 
 This extension adds language support for the Nim language to VS Code, including:
 
@@ -79,5 +84,5 @@ This command available from file context menu or by `F6` keyboard shortcut.
 
 ## ChangeLog
 
-ChangeLog is located [here](https://github.com/pragmagic/vscode-nim/blob/master/CHANGELOG.md)
+ChangeLog is located [here](https://github.com/GaryM-exkage/vscode-nim-alt/blob/master/CHANGELOG.md)
 
