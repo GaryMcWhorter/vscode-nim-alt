@@ -6,12 +6,12 @@
     "name": "nim",
     "patterns": [
       { "include": "#base_expression" },
+      { "include": "#pragma"},
       { "include": "#multi-line-comment"},
       { "include": "#compare_op" },
       { "include": "#assignment_op" },
       { "include": "#arithmetic_op" },
       { "include": "#keywords" },
-      { "include": "#self" },
       { "include": "#const_vars" },
       { "include": "#function-declaration" },
       { "include": "#function-return-type" },
@@ -20,6 +20,11 @@
       { "include": "#pascal_case_class" }
     ],
     "repository": {
+      "pragma": {
+        "begin": "{\\.",
+        "end": "\\.}",
+        "name": "entity.name.function.preprocessor.nim"
+      },
       "multi-line-comment": {
         "begin": "#\\[",
         "end": "\\]#",
@@ -37,6 +42,11 @@
         },
         "match": "(#).*$\\n?",
         "name": "comment.line.number-sign.nim"
+      },
+      "raw-strings": {
+        "begin": "\"\"\"",
+        "end": "\"\"\"",
+        "name": "string.quoted.double.nim"
       },
       "strings": {
         "patterns": [{
@@ -71,12 +81,9 @@
           }
         ]
       },
-      "self": {
-        "match": "\\bself\\b",
-        "name": "variable.language.nim"
-      },
       "base_expression": {
         "patterns": [
+          { "include": "#raw-strings" },
           { "include": "#strings"},
           { "include": "#multi-line-comment"},
           { "include": "#comment"},
@@ -180,7 +187,6 @@
             "name": "keyword.operator.unpacking.parameter.nim",
             "match": "(\\*\\*|\\*)"
           },
-          { "include": "#parameter-special" },
           {
             "match": "(?x)\n  ([[:alpha:]_]\\w*)\n    \\s* (?: (,) | (?=[)#\\n=]))\n",
             "captures": {
@@ -200,15 +206,6 @@
       "any-property": {
         "match": "(?<=[^.]\\.)\\b([A-Za-z_]\\w*)\\b(?![(])",
         "name": "variable.other.property.nim"
-      },
-      "parameter-special": {
-        "match": "(?x)\n  \\b ((self)|(cls)) \\b \\s*(?:(,)|(?=\\)))\n",
-        "captures": {
-          "1": { "name": "variable.parameter.function.language.nim" },
-          "2": { "name": "variable.parameter.function.language.special.self.nim" },
-          "3": { "name": "variable.parameter.function.language.special.cls.nim" },
-          "4": { "name": "punctuation.separator.parameters.nim" }
-        }
       },
       "loose-default": {
         "begin": "(=)",

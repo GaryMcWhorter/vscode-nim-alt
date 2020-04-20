@@ -2,11 +2,15 @@
 
 **NOTE:**
 _This is currently a mirror of [the original Nim extension](https://marketplace.visualstudio.com/items?itemName=kosz78.nim)_
+
 Changes include:
 - Fixes for syntax highlighting bugs
 - Changes to syntax highlighting to more properly reflect idiomatic practice. 
     This will look different and many words will now not be highlighted as you may have been used to, but this is more consistent and correct to the language standard.
 - A pretty new icon
+
+Potential problems:
+- Some syntax may still not be properly highlighted due to rewriting the syntax highlighting. These issues will be fixed as they are found.
 
 This extension adds language support for the Nim language to VS Code, including:
 
