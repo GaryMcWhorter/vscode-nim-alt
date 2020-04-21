@@ -59,21 +59,18 @@
       "strings": {
         "patterns": [{
             "begin": "\"",
-            "end": "\"",
+            "end": "(?<!\\\\)\"",
             "patterns": [
               {  
-                "match": "\\.",
-                "name": "keyword.operator.arithmetic.nim"
+                "match": "(\\\\.?)",
+                "name": "constant.language.nim"
               },
               {
-                "begin": "({)",
-                "end": "(})",
-                "name": "variable.other.property.nim",
-                "beginCaptures": {
-                  "1": { "name": "entity.name.function.preprocessor.nim" }
-                },
-                "endCaptures": {
-                  "1": { "name": "entity.name.function.preprocessor.nim" }
+                "match": "({)([^:]\\w+?)(})",
+                "captures": {
+                  "1": { "name": "constant.language.nim" },
+                  "2": { "name": "variable.other.property.nim" },
+                  "3": { "name": "constant.language.nim" }
                 }
                 
               }
