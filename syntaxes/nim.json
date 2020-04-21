@@ -45,7 +45,10 @@
       "raw-strings": {
         "begin": "\"\"\"",
         "end": "\"\"\"",
-        "name": "string.quoted.double.nim"
+        "name": "string.quoted.double.nim",
+        "patterns": [
+          { "include": "#fmt-brackets" }                
+        ]
       },
       "char": {
         "match": "(')(\\\\?)(.?')",
@@ -57,28 +60,28 @@
         
       },
       "strings": {
-        "patterns": [{
+        "patterns": [
+        {
             "begin": "\"",
             "end": "(?<!\\\\)\"",
             "patterns": [
               {  
                 "match": "(\\\\.?)",
                 "name": "constant.language.nim"
-              },
-              {
-                "match": "({)([^:]\\w+?)(})",
-                "captures": {
-                  "1": { "name": "constant.language.nim" },
-                  "2": { "name": "variable.other.property.nim" },
-                  "3": { "name": "constant.language.nim" }
-                }
-                
-              }
+              }, 
+                { "include": "#fmt-brackets" }                
             ],
             "name": "string.quoted.double.nim"
-          }
-          
+          }  
         ]
+      },
+      "fmt-brackets": {
+        "match": "({)([^:\"]+?)(})",
+          "captures": {
+            "1": { "name": "constant.language.nim" },
+            "2": { "name": "variable.other.property.nim" },
+            "3": { "name": "constant.language.nim" }
+          }
       },
       "base_expression": {
         "patterns": [
