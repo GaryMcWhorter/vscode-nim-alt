@@ -26,8 +26,8 @@
         "name": "entity.name.function.preprocessor.nim"
       },
       "multi-line-comment": {
-        "begin": "#\\[",
-        "end": "\\]#",
+        "begin": "#?#\\[",
+        "end": "\\]#?#",
         "name": "comment.line.number-sign.nim",
         "patterns":
         [{
