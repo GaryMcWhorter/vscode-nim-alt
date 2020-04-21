@@ -13,7 +13,6 @@
       { "include": "#arithmetic_op" },
       { "include": "#primitives" },
       { "include": "#keywords" },
-      { "include": "#function-declaration" },
       { "include": "#function-return-type" },
       { "include": "#any-method" },
       { "include": "#any-property" },
@@ -212,7 +211,7 @@
         ]
       },
       "any-method": {
-        "match": "\\b([A-Za-z_]\\w*\\*?)\\b(\\*?)(?=\\s*(?:[(]))",
+        "match": "\\b([A-Za-z_]\\w*)(\\*?)(\\()",
         "captures": {
           "1": { "name": "support.function.any-method.nim" },
           "2": { "name": "keyword.operator.arithmetic.nim" }
