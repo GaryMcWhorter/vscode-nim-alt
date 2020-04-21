@@ -12,6 +12,23 @@ Changes include:
 Potential problems:
 - Some syntax may still not be properly highlighted due to rewriting the syntax highlighting. These issues will be fixed as they are found.
 
+**NOTE:**
+You can enable optional coloring for basic types in your settings.json
+You have to set the color yourself in #RRGGBB format. You can't make it match your current them automatically.
+```json
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": "basicTypes.nim",
+                "settings": {
+                    "foreground": "#ff0000",
+                }
+            }
+        ]
+    }
+```
+
+
 This extension adds language support for the Nim language to VS Code, including:
 
 - Syntax Highlight (nim, nimble, nim.cfg)

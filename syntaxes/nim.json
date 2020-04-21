@@ -11,6 +11,7 @@
       { "include": "#compare_op" },
       { "include": "#assignment_op" },
       { "include": "#arithmetic_op" },
+      { "include": "#basic-types" },
       { "include": "#primitives" },
       { "include": "#keywords" },
       { "include": "#function-return-type" },
@@ -113,6 +114,10 @@
       "letter": {
         "match": "\\b(?i:true|false|null)\\b",
         "name": "constant.language.nim"
+      },
+      "basic-types": {
+        "match": "\\b(?i:int|int8|int16|int32|int64|uint|uint8|uint16|uint32|uint64|float|float32|float64|bool|array|seq|newSeq|char|string|cstring)\\b",
+        "name": "basicTypes.nim"
       },
       "primitives": {
         "match": "'[iIuUfFdD](8|16|32|64)?",
