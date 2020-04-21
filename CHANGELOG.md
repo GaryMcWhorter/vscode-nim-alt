@@ -1,6 +1,6 @@
 # ChangeLog
 
-## 0.6.8 (20 April 2020)
+## 0.7.0 (20 April 2020)
 * The first real revision to the original extension with entirely new syntax highlighting and squashing some related bugs
 
 ## 0.6.6 (26 Mar 2020)
