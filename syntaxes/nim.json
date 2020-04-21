@@ -62,8 +62,21 @@
             "begin": "\"",
             "end": "\"",
             "patterns": [
-              {  "name": "keyword.operator.arithmetic.nim",
-                  "match": "\\."
+              {  
+                "match": "\\.",
+                "name": "keyword.operator.arithmetic.nim"
+              },
+              {
+                "begin": "({)",
+                "end": "(})",
+                "name": "variable.other.property.nim",
+                "beginCaptures": {
+                  "1": { "name": "entity.name.function.preprocessor.nim" }
+                },
+                "endCaptures": {
+                  "1": { "name": "entity.name.function.preprocessor.nim" }
+                }
+                
               }
             ],
             "name": "string.quoted.double.nim"
