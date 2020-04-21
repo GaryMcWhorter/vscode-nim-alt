@@ -48,41 +48,32 @@
         "end": "\"\"\"",
         "name": "string.quoted.double.nim"
       },
+      "char": {
+        "match": "(')(\\\\?)(.?')",
+        "captures": {
+          "1": { "name": "string.quoted.single.nim" },
+          "2": { "name": "keyword.operator.arithmetic.nim" },
+          "3": { "name": "string.quoted.single.nim" }
+        }
+        
+      },
       "strings": {
         "patterns": [{
             "begin": "\"",
             "end": "\"",
             "patterns": [
-              {  "name": "constant.character.escape.untitled",
+              {  "name": "keyword.operator.arithmetic.nim",
                   "match": "\\."
               }
             ],
             "name": "string.quoted.double.nim"
-          },
-          {
-            "begin": "'",
-            "end": "'",
-            "patterns": [
-              {  "name": "constant.character.escape.untitled",
-                  "match": "\\."
-              }
-            ],
-            "name": "string.quoted.single.nim"
-          },
-          {
-            "begin": "@\"",
-            "end": "\"",
-            "patterns": [
-              {  "name": "constant.character.escape.untitled",
-                  "match": "\\."
-              }
-            ],
-            "name": "string.nodepath.nim"
           }
+          
         ]
       },
       "base_expression": {
         "patterns": [
+          { "include": "#char" },
           { "include": "#raw-strings" },
           { "include": "#strings"},
           { "include": "#multi-line-comment"},
@@ -200,8 +191,12 @@
         ]
       },
       "any-method": {
-        "match": "\\b([A-Za-z_]\\w*)\\b(?=\\s*(?:[(]))",
-        "name": "support.function.any-method.nim"
+        "match": "\\b([A-Za-z_]\\w*\\*?)\\b(\\*?)(?=\\s*(?:[(]))",
+        "captures": {
+          "1": { "name": "support.function.any-method.nim" },
+          "2": { "name": "keyword.operator.arithmetic.nim" }
+        }
+        
       },
       "any-property": {
         "match": "(?<=[^.]\\.)\\b([A-Za-z_]\\w*)\\b(?![(])",
