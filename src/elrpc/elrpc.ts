@@ -24,7 +24,7 @@ export class EPCPeer {
 
     constructor(socket: net.Socket) {
         this.socket = socket;
-        this.receivedBuffer = new Buffer(0);
+        this.receivedBuffer = Buffer.alloc(0);
         this.socket.on('data', data => {
             this.receivedBuffer = Buffer.concat([this.receivedBuffer, data]);
             while (this.receivedBuffer.length > 0) {
