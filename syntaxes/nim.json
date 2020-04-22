@@ -166,9 +166,9 @@
             }
           },
           {
-            "match": "\\b([\\d_]+)('?[iIuUdDfF][123468]{0,2})\\b",
+            "match": "\\b([\\d_]+)('?[iIuUdDfF][123468]{0,2})?\\b",
             "captures": {
-              "1": { "name": "constant.numeric.float.nim" },
+              "1": { "name": "constant.numeric.integer.nim" },
               "2": { "name": "constant.language.nim" }
             }
           }
