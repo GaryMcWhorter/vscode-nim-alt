@@ -121,28 +121,28 @@
       },
       "numbers": {
         "patterns": [{
-            "match": "\\b(0[xX][\\h_]*)('?[iIuUdDfF][123468]{0,2})\\b",
+            "match": "\\b(0[xX][\\h_]*)('?[iIuUdDfF][123468]{0,2})?\\b",
             "captures": {
               "1": { "name": "constant.numeric.float.nim" },
               "2": { "name": "constant.language.nim" }
             }
           },          
           {
-            "match": "\\b(0[oO][0-7]*)('?[iIuUdDfF][123468]{0,2})\\b",
+            "match": "\\b(0[oO][0-7]*)('?[iIuUdDfF][123468]{0,2})?\\b",
             "captures": {
               "1": { "name": "constant.numeric.float.nim" },
               "2": { "name": "constant.language.nim" }
             }
           },
           {
-            "match": "\\b(0[bB][01_]*)('?[iIuUdDfF][123468]{0,2})\\b",
+            "match": "\\b(0[bB][01_]*)('?[iIuUdDfF][123468]{0,2})?\\b",
             "captures": {
               "1": { "name": "constant.numeric.float.nim" },
               "2": { "name": "constant.language.nim" }
             }
           },
           {
-            "match": "\\b(?i:([\\d_]+\\.[\\d_]*(e[\\-\\+]?[\\d_]+)?))('?[dDfF][2346]{0,2})\\b",
+            "match": "\\b(?i:([\\d_]+\\.[\\d_]*(e[\\-\\+]?[\\d_]+)?))('?[dDfF][2346]{0,2})?\\b",
             "captures": {
               "1": { "name": "constant.numeric.float.nim" },
               "2": { "name": "constant.numeric.float.nim" },
@@ -150,7 +150,7 @@
             }
           },
           {
-            "match": "\\b(?i:(\\.[\\d_]+(e[\\-\\+]?[\\d_]+)?))('?[dDfF][2346]{0,2})\\b",
+            "match": "\\b(?i:(\\.[\\d_]+(e[\\-\\+]?[\\d_]+)?))('?[dDfF][2346]{0,2})?\\b",
             "captures": {
               "1": { "name": "constant.numeric.float.nim" },
               "2": { "name": "constant.numeric.float.nim" },
@@ -158,7 +158,7 @@
             }
           },
           {
-            "match": "\\b(?i:([\\d_]+e[\\-\\+]?[\\d_]+))('?[dDfF][2346]{0,2})\\b",
+            "match": "\\b(?i:([\\d_]+e[\\-\\+]?[\\d_]+))('?[dDfF][2346]{0,2})?\\b",
             "captures": {
               "1": { "name": "constant.numeric.float.nim" },
               "2": { "name": "constant.numeric.float.nim" },
