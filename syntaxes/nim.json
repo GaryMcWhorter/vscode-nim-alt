@@ -104,8 +104,10 @@
         "name": "keyword.operator.arithmetic.nim"
       },
       "assignment_op": {
-        "match": "[^-+*/<>!]=[^-+*/<>!]",
-        "name": "keyword.operator.assignment.nim"
+        "match": "(?<=[^-+*/<>!=])(=)",
+        "captures": {
+          "1": { "name": "keyword.operator.assignment.nim" }
+        }
       },
       "keywords": {
         "match": "\\b(?i:addr|and|as|asm|bind|block|break|case|cast|concept|const|continue|converter|defer|discard|distinct|div|do|elif|else|end|enum|except|export|finally|for|from|func|if|import|in|include|interface|is|isnot|iterator|let|macro|method|mixin|mod|nil|not|notin|object|of|or|out|proc|ptr|raise|ref|return|shl|shr|static|template|try|tuple|type|using|var|when|while|xor|yield)\\b",
@@ -236,7 +238,7 @@
         ]
       },
       "any-method": {
-        "match": "\\b([A-Za-z_]\\w*)(\\*?)(\\()",
+        "match": "\\b([A-Za-z_]\\w*)(\\*?)(?>(\\[T\\])?)(\\()",
         "captures": {
           "1": { "name": "support.function.any-method.nim" },
           "2": { "name": "keyword.operator.arithmetic.nim" }
