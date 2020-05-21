@@ -246,7 +246,7 @@
         
       },
       "method-declare": {
-        "begin": "((?<=proc|template|func)\\s*)",
+        "begin": "((?<=proc|template|func) \\s*)",
         "end":  "([a-zA-z_]\\w*)(\\*?)",
         "endCaptures": {
           "1": { "name": "support.function.any-method.nim" },
