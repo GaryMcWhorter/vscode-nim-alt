@@ -1,232 +1,40 @@
 {
-    "name": "nim-alt",
-    "displayName": "Nim Alt",
-    "description": "Nim language support for Visual Studio Code - Mirrored with changes",
-    "version": "0.8.0",
-    "publisher": "garym",
-    "author": {
-        "name": "Gary M"
-    },
-    "license": "MIT",
-    "icon": "images/nim_icon.png",
-    "homepage": "https://github.com/GaryM-exkage/vscode-nim-alt/blob/master/README.md",
-    "categories": [
-        "Programming Languages",
-        "Linters"
-    ],
-    "galleryBanner": {
-        "color": "#2C2A35",
-        "theme": "dark"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/GaryM-exkage/vscode-nim-alt.git"
-    },
-    "bugs": {
-        "url": "https://github.com/GaryM-exkage/vscode-nim-alt/issues"
-    },
-    "scripts": {
-        "vscode:prepublish": "webpack --mode production",
-        "webpack": "webpack --mode development",
-        "webpack-dev": "webpack --mode development --watch",
-        "test-compile": "tsc -p ./",
-        "watch": "tsc -watch -p ./",
-        "postinstall": "node ./node_modules/vscode/bin/install",
-        "lint": "node ./node_modules/tslint/bin/tslint ./src/*.ts ./test/*.ts"
-    },
-    "dependencies": {
-        "nedb": "1.8.0"
-    },
-    "devDependencies": {
-        "@types/mocha": "^5.2.7",
-        "@types/node": "^10.17.17",
-        "ts-loader": "^7.0.1",
-        "tslint": "^5.20.1",
-        "typescript": "^2.6.1",
-        "vscode": "^1.1.36",
-        "webpack": "^4.42.1",
-        "webpack-cli": "^3.3.11"
-    },
-    "extensionDependencies": [
-        "ms-vscode.cpptools"
-    ],
-    "engines": {
-        "vscode": "^1.27.0"
-    },
-    "activationEvents": [
-        "onLanguage:nim",
-        "onLanguage:nimcfg",
-        "onLanguage:nimble",
-        "onCommand:nim.build",
-        "onCommand:nim.run",
-        "onCommand:nim.runTest",
-        "onCommand:nim.execSelectionInTerminal"
-    ],
-    "main": "./dist/nimMain",
-    "contributes": {
-        "languages": [
-            {
-                "id": "nim",
-                "aliases": [
-                    "Nim",
-                    "nim"
-                ],
-                "extensions": [
-                    ".nim",
-                    ".nims",
-                    "nim.cfg",
-                    ".nim.cfg"
-                ],
-                "configuration": "./nimcfg.json"
-            },
-            {
-                "id": "nimble",
-                "aliases": [
-                    "Nimble",
-                    "nimble"
-                ],
-                "extensions": [
-                    ".nimble"
-                ],
-                "configuration": "./nimcfg.json"
-            }
-        ],
-        "grammars": [
-            {
-                "language": "nim",
-                "scopeName": "source.nim",
-                "path": "./syntaxes/nim.json"
-            },
-            {
-                "language": "nimble",
-                "scopeName": "source.nimble",
-                "path": "./syntaxes/nimble.json"
-            }
-        ],
-        "commands": [
-            {
-                "command": "nim.run.file",
-                "title": "Run selected Nim file",
-                "category": "Nim"
-            },
-            {
-                "command": "nim.check",
-                "title": "Check Nim project",
-                "category": "Nim"
-            },
-            {
-                "command": "nim.execSelectionInTerminal",
-                "title": "Run Selection/Line in Nim Terminal",
-                "category": "Nim"
-            }
-        ],
-        "menus": {
-            "editor/context": [
-                {
-                    "when": "editorLangId == 'nim'",
-                    "command": "nim.run.file",
-                    "group": "run@1"
-                }
-            ]
-        },
-        "keybindings": [
-            {
-                "key": "F6",
-                "command": "nim.run.file",
-                "when": "editorLangId == 'nim'"
-            },
-            {
-                "key": "ctrl+alt+b",
-                "command": "nim.check",
-                "when": "editorLangId == 'nim'"
-            },
-            {
-                "key": "shift+enter",
-                "command": "nim.execSelectionInTerminal",
-                "when": "editorFocus && editorLangId == nim && !findInputFocussed && !replaceInputFocussed"
-            }
-        ],
-        "configuration": {
-            "type": "object",
-            "title": "Nim configuration",
-            "properties": {
-                "nim.project": {
-                    "type": "array",
-                    "default": [],
-                    "description": "Nim project file, if empty use current selected."
-                },
-                "nim.projectMapping": {
-                    "type": "object",
-                    "default": {},
-                    "description": "For non project mode list of per file project mapping using regex, for example ```{\"(.*).inim\": \"$1.nim\"}```"
-                },
-                "nim.test-project": {
-                    "type": "string",
-                    "default": "",
-                    "description": "Optional test project."
-                },
-                "nim.buildOnSave": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "Execute build task from tasks.json file on save."
-                },
-                "nim.buildCommand": {
-                    "type": "string",
-                    "default": "c",
-                    "description": "Nim build command (c, cpp, doc, etc)"
-                },
-                "nim.runOutputDirectory": {
-                    "type": "string",
-                    "default": "",
-                    "description": "Output directory for run selected file command. The directory is relative to the workspace root."
-                },
-                "nim.lintOnSave": {
-                    "type": "boolean",
-                    "default": true,
-                    "description": "Check code by using 'nim check' on save."
-                },
-                "nim.enableNimsuggest": {
-                    "type": "boolean",
-                    "default": true,
-                    "description": "Enable calling nimsuggest process to provide completion suggestions, hover suggestions, etc.\nThis option requires restart to take effect."
-                },
-                "nim.logNimsuggest": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "Enable verbose logging of nimsuggest to use profile directory."
-                },
-                "nim.licenseString": {
-                    "type": "string",
-                    "default": "",
-                    "description": "Optional license text that will be inserted on nim file creation."
-                },
-                "nim.nimsuggestRestartTimeout": {
-                    "type": "integer",
-                    "default": 60,
-                    "description": "Nimsuggest will be restarted after this timeout in minutes, if 0 then restart disabled.\nThis option requires restart to take effect."
-                },
-                "nim.nimprettyIndent": {
-                    "type": "integer",
-                    "default": 0,
-                    "description": "Nimpretty: set the number of spaces that is used for indentation\n--indent:0 means autodetection (default behaviour)."
-                },
-                "nim.nimprettyMaxLineLen": {
-                    "type": "integer",
-                    "default": 80,
-                    "description": "Nimpretty: set the desired maximum line length (default: 80)."
-                }
-            }
-        },
-        "breakpoints": [
-            {
-                "language": "nim"
-            }
-        ],
-        "snippets": [
-            {
-                "language": "nim",
-                "path": "./snippets/nim.json"
-            }
-        ]
-    }
+	"name": "nim-alt",
+	"displayName": "vscode-nim-alt",
+	"description": "Language support for the Nim programming language",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.46.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:nim-alt.helloWorld"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "nim-alt.helloWorld",
+				"title": "Hello World"
+			}
+		]
+	},
+	"scripts": {
+		"lint": "eslint .",
+		"pretest": "npm run lint",
+		"test": "node ./test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.46.0",
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^7.0.2",
+		"@types/node": "^13.11.0",
+		"eslint": "^6.8.0",
+		"glob": "^7.1.6",
+		"mocha": "^7.1.2",
+		"typescript": "^3.8.3",
+		"vscode-test": "^1.3.0"
+	}
 }
