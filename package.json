@@ -45,7 +45,7 @@
         "typescript": "^2.6.1",
         "vscode": "^1.1.36",
         "webpack": "^4.42.1",
-        "webpack-cli": "^3.3.11"
+        "webpack-cli": "^3.3.12"
     },
     "extensionDependencies": [
         "ms-vscode.cpptools"
